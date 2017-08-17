@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<windows.h>
+int main() {
+	int i, j;
+	int x = 5;
+	int y = 10;
+	char input;
+	int isFire = 0;
+
+	int ny = 5;
+	int isKilled = 0;
+
+	while (true)
+	{
+		system("cls");
+		if (!isKilled)
+		{
+			for ( j = 0; j < ny; j++)
+			{
+				printf(" ");
+			}
+			printf("+\n");
+		}
+		if (isFire == 0 )
+		{
+			for (i = 0; i < x; i++)
+				printf("\n");
+		}
+		else
+		{
+			for ( i = 0; i < x; i++)
+			{
+				for (j = 0; j <y ; j++)
+				{
+					printf(" ");
+				}
+				printf("  |\n");
+			}
+			if (y + 2 == ny)
+			{
+				isKilled = 1;
+			}
+			isFire = 0;
+		}
+		
+
+		for (j = 0; j < y; j++)
+			printf(" ");
+		printf("  * \n");
+		for (j = 0; j < y; j++)
+			printf(" ");
+		printf("***** \n");
+		for (j = 0; j < y; j++)
+			printf(" ");
+		printf(" * * \n");
+		Sleep(100);
+		if (_kbhit())
+		{
+			input = _getch();
+			if (input == 'a')
+				y--;
+			if (input == 'd')
+				y++;
+			if (input == 'w')
+				x--;
+			if (input == 's')
+				x++;
+			if (input == ' ')
+				isFire = 1;
+		}
+
+	}
+}
